@@ -1,12 +1,12 @@
-# pi extensions
+# pi-extensions
 
-A collection of extensions for [pi](https://github.com/badlogic/pi-mono), the coding agent.
+Personal extensions for the [Pi coding agent](https://github.com/badlogic/pi-mono).
 
 ## Extensions
 
-### [co-authored-by](extensions/co-authored-by/)
-
-Automatically appends git trailers to commit messages when the agent runs `git commit -m`. Adds attribution for the model used and the pi version.
+| Extension | Description |
+|-----------|-------------|
+| [co-authored-by](extensions/co-authored-by/) | Automatically appends git trailers (`Co-Authored-By`, `Generated-By`) to commit messages with the model name and pi version |
 
 Example commit message:
 
@@ -17,9 +17,28 @@ Co-Authored-By: Claude Sonnet 4 <noreply@pi.dev>
 Generated-By: pi 0.52.12
 ```
 
-## Usage
+## Install
 
-Add to your pi settings (`~/.pi/settings.json` or `.pi/settings.json`):
+```bash
+pi install git:github.com/bruno-garcia/pi-extensions
+```
+
+To enable only specific extensions:
+
+```json
+{
+  "packages": [
+    {
+      "source": "git:github.com/bruno-garcia/pi-extensions",
+      "extensions": ["extensions/co-authored-by/index.ts"]
+    }
+  ]
+}
+```
+
+## Quick Setup
+
+If you keep a local clone, add to your `~/.pi/agent/settings.json`:
 
 ```json
 {
